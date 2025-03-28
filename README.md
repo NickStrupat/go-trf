@@ -22,26 +22,27 @@ import (
 )
 
 func main() {
-	Try(
-		func() {
-			println("attempt to do things here")
-			
-			panic("a string containing an error message")
-		},
-		Recovers{
-			Recover(func(err string) {
-				println("caught string: ", err)
-			}),
-			Recover(func(err int) {
-				println("caught int:", err)
-			}),
-			Recover(func(err any) {
-				println("caught any", err)
-			}),
-		},
-		func() {
-			println("finally")
-		},
-	)
+    Try(
+        func() {
+            println("attempt to do things here")
+
+            panic("a string containing an error message")
+        },
+        Recovers{
+            Recover(func(err string) {
+                println("caught string: ", err)
+            }),
+            Recover(func(err int) {
+                println("caught int:", err)
+            }),
+            Recover(func(err any) {
+                println("caught any", err)
+            }),
+        },
+        func() {
+            println("finally")
+        },
+    )
 }
+
 ```
